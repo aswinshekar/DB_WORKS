@@ -95,26 +95,26 @@ c=con.cursor()
 #     print("NO RECORDS")
 
 
-
-
-DELETE A RECORD A STUDENT WITH ROLL_NO= ROLL_NO ENTER BYE THE USER
-
-number=int(input("ENTER THE ROLL_NO: "))
-query="delete from student where roll_no=%s"
-data=(number,)
-c.execute(query,data)
-con.commit()
-
- CREATE A NEW RECORD ENTERED BY A USER
-
-roll_no=int(input("ENTER THE ROLL_NO: "))
-name=input("ENTER THE NAME: ")
-age=int(input("ENTER THE AGE: "))
-place=input("ENTER THE PLACE: ")
-phone=int(input("ENTER THE PHONE_NO: "))
-total_mark=int(input("ENTER THE TOTAL_MARK: "))
-query="insert into student(roll_no,name,age,place,phone,total_mark) values(%s,%s,%s,%s,%s,%s)"
-data=(roll_no,name,age,place,phone,total_mark,)
-c.execute(query,data)
-con.commit()
-print("INSERTED")
+#
+#
+# DELETE A RECORD A STUDENT WITH ROLL_NO= ROLL_NO ENTER BYE THE USER
+#
+# number=int(input("ENTER THE ROLL_NO: "))
+# query="delete from student where roll_no=%s"
+# data=(number,)
+# c.execute(query,data)
+# con.commit()
+#
+#  CREATE A NEW RECORD ENTERED BY A USER
+#
+# roll_no=int(input("ENTER THE ROLL_NO: "))
+# name=input("ENTER THE NAME: ")
+# age=int(input("ENTER THE AGE: "))
+# place=input("ENTER THE PLACE: ")
+# phone=int(input("ENTER THE PHONE_NO: "))
+# total_mark=int(input("ENTER THE TOTAL_MARK: "))
+# query="insert into student(roll_no,name,age,place,phone,total_mark) values(%s,%s,%s,%s,%s,%s)"
+# data=(roll_no,name,age,place,phone,total_mark,)
+# c.execute(query,data)
+# con.commit()
+# print("INSERTED")
