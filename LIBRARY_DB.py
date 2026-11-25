@@ -58,17 +58,17 @@ class BookListCreateRetriveUpdateDelete:
         if self.cursor.rowcount>0:
             print("UPDATE SUCCESFULLY ")
         else:
-            print("NO RECORD FOUND")
-
-    def delete(self,id):
-        query = "delete from book where id = %s "
-        data = (id,)
-        self.cursor.execute(query, data)
-        self.connection.commit()
-        if self.cursor.rowcount>0:
-            print("DELETED")
-        else:
-            print("NO RECORD FOUND")
+    #         print("NO RECORD FOUND")
+    #
+    # def delete(self,id):
+    #     query = "delete from book where id = %s "
+    #     data = (id,)
+    #     self.cursor.execute(query, data)
+    #     self.connection.commit()
+    #     if self.cursor.rowcount>0:
+    #         print("DELETED")
+    #     else:
+    #         print("NO RECORD FOUND")
             
 book_instance=BookListCreateRetriveUpdateDelete()
 # book_instance.list()
