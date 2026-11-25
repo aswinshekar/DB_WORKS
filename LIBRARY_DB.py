@@ -19,6 +19,8 @@ class BookListCreateRetriveUpdateDelete:
         print(self.connection)
         self.cursor=self.connection.cursor()
         print("SUCCESSFULLY CONNECTED")
+
+
     def list(self):
         query="select * from book"
         self.cursor.execute(query)
