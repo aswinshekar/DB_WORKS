@@ -42,18 +42,18 @@ c=con.cursor()
 # # 6. Exit
 #
 
-# def insert():
-#     prd_id=int(input("ENTER THE PRODUCT_ID: "))
-#     name=input("ENTER THE NAME: ")
-#     brand=input("ENTER THE BRAND NAME:")
-#     category= input("ENTER THE CATEGORY: ")
-#     price=int(input("ENTER THE PRICE: "))
-#     stock=int(input("ENTER THE STOCK:"))
-#     query=" insert into product(product_id,name,brand,category,price,stock) values(%s,%s,%s,%s,%s,%s)"
-#     data=(prd_id,name,brand,category,price,stock,)
-#     c.execute(query,data)
-#     con.commit()
-#     print("INSERTED")
+def insert():
+    prd_id=int(input("ENTER THE PRODUCT_ID: "))
+    name=input("ENTER THE NAME: ")
+    brand=input("ENTER THE BRAND NAME:")
+    category= input("ENTER THE CATEGORY: ")
+    price=int(input("ENTER THE PRICE: "))
+    stock=int(input("ENTER THE STOCK:"))
+    query=" insert into product(product_id,name,brand,category,price,stock) values(%s,%s,%s,%s,%s,%s)"
+    data=(prd_id,name,brand,category,price,stock,)
+    c.execute(query,data)
+    con.commit()
+    print("INSERTED")
 
 def read():
     query="select * from product"
