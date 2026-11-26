@@ -29,6 +29,27 @@ class Shop:
         c.execute(query,data)
         self.con.commit()
         print("INSERTED")
+    def read(self):
+        c=self.con.cursor()
+        query="select * from product"
+        c.execute(query)
+        record=c.fetchall()
+        if record:
+            for i in record:
+                print(i)
+        else:
+            print("NO DATA")
+    def search(self,id):
+        c=self.con.cursor()
+        query="select * from product where product_id=%s"
+        data=(id,)
+        c.execute(query,data)
+        record=c.fetchall()
+        if record:
+            for i in record:
+                print(i)
+        else:
+            print("NO DATA")
 
 
 s=Shop()
@@ -45,9 +66,10 @@ while(1):
         s.create(p,n,b,c,pr,st)
 
     elif ch==2:
-        pass
+        s.read()
     elif ch==3:
-        pass
+        i=int(input("ENTER ID: "))
+        s.search(i)
     elif ch==4:
         pass
     elif ch==5:
