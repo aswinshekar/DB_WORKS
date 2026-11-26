@@ -31,12 +31,19 @@ class Shop:
         print("INSERTED")
 
 
-
+s=Shop()
 while(1):
     print("1.INSERT\n2.READ\n3.SEARCH\n4.UPDATE\n5.DELETE\n6.EXIT")
     ch=int(input("ENTER YOUR CHOICE: "))
     if ch==1:
-        pass
+        p=input("ENTER PRODUCT_ID: ")
+        n=input("ENTER  NAME: ")
+        b=input("ENTER BRAND: ")
+        c=input("ENTER CATEGORY: ")
+        pr=int(input("ENTER PRICE: "))
+        st=int(input("ENTER STOCK: "))
+        s.create(p,n,b,c,pr,st)
+
     elif ch==2:
         pass
     elif ch==3:
