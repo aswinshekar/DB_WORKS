@@ -78,4 +78,4 @@ while(1):
         i=int(input("ENTER ID: "))
         p.delete(i)
     elif ch == 6:
-        pass
+        exit()
