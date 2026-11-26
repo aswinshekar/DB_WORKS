@@ -44,6 +44,16 @@ class Person:
             print("UPDATED ")
         else:
             print("FAILED TO UPDATE")
+    def delete(self,id):
+        c=self.con.cursor()
+        query="delete from person where id = %s"
+        data=(id,)
+        c.execute(query,data)
+        self.con.commit()
+        if c.rowcount > 0:
+            print("DELETED ")
+        else:
+            print("FAILED TO DELETED")
 
 p=Person()
 while(1):
@@ -65,6 +75,7 @@ while(1):
         a = int(input("ENTER AGE: "))
         p.update(i, n, a)
     elif ch == 5:
-        pass
+        i=int(input("ENTER ID: "))
+        p.delete(i)
     elif ch == 6:
         pass
