@@ -60,6 +60,17 @@ class Shop:
             print("UPDATED")
         else:
             print("CANNOT FIND ID ")
+    def delete(self,id):
+        c=self.con.cursor()
+        query="delete from product where product_id=%s"
+        data=(id,)
+        c.execute(query,data)
+        self.con.commit()
+        if c.rowcount > 0:
+            print("DELETED")
+        else:
+            print("CANNOT DELETE ")
+
 
 
 s=Shop()
@@ -85,6 +96,7 @@ while(1):
         st=int(input("ENTER NEW STOCK: "))
         s.update(i,st)
     elif ch==5:
-        pass
+        i=int(input("ENTER PRODUCT_ID: "))
+        s.delete(i)
     elif ch==6:
-        pass
+        exit()
