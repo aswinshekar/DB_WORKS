@@ -50,6 +50,16 @@ class Shop:
                 print(i)
         else:
             print("NO DATA")
+    def update(self,id,s):
+        c=self.con.cursor()
+        query="update product set stock=%s where product_id=%s"
+        data=(s,id)
+        c.execute(query,data)
+        self.con.commit()
+        if c.rowcount>0:
+            print("UPDATED")
+        else:
+            print("CANNOT FIND ID ")
 
 
 s=Shop()
@@ -71,7 +81,9 @@ while(1):
         i=int(input("ENTER ID: "))
         s.search(i)
     elif ch==4:
-        pass
+        i=int(input("ENTER PRODUCT ID: "))
+        st=int(input("ENTER NEW STOCK: "))
+        s.update(i,st)
     elif ch==5:
         pass
     elif ch==6:
