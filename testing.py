@@ -1,81 +1,49 @@
-import mysql.connector
-class Person:
-    def __init__(self):
-        try:
-            self.con=mysql.connector.connect(user="root",password="Root",host="localhost",database="person_db")
-            print("CONNECTION SUCCESFULL")
-        except:
-            print("FAILED TO CONNECT")
-    def create(self,id,name,age):
-        c=self.con.cursor()
-        query="insert into person (id,name,age) values(%s,%s,%s)"
-        data=(id,name,age)
-        c.execute(query,data)
-        self.con.commit()
-        print("RECORD INSERTED ")
-    def read(self):
-        c = self.con.cursor()
-        query="select * from person"
-        c.execute(query)
-        record=c.fetchall()
-        if record:
-            for i in record:
-                print(i)
-        else:
-            print("no record found")
-    def retrive(self,id):
-        c=self.con.cursor()
-        query="select * from person where id=%s"
-        data=(id,)
-        c.execute(query,data)
-        record = c.fetchall()
-        if record:
-            for i in record:
-                print(i)
-        else:
-            print("no record found")
-    def update(self,id,name,age):
-        c=self.con.cursor()
-        query="update person set name=%s ,age=%s where id =%s"
-        data=(name,age,id)
-        c.execute(query,data)
-        self.con.commit()
-        if c.rowcount>0:
-            print("UPDATED ")
-        else:
-            print("FAILED TO UPDATE")
-    def delete(self,id):
-        c=self.con.cursor()
-        query="delete from person where id = %s"
-        data=(id,)
-        c.execute(query,data)
-        self.con.commit()
-        if c.rowcount > 0:
-            print("DELETED ")
-        else:
-            print("FAILED TO DELETED")
+# # Create a database named shop
+# # Create a table `Product` with the following fields:
+#
+# #  `product_id` – Primary Key
+# #  `name`
+# #  `brand`
+# #  `category`
+# #  `price`
+# #  `stock`
 
-p=Person()
+# # Write a menu-driven Python program using MySQL with the following options:
+#
+# # text
+# # 1. Insert Product details
+# # 2. Read all Product details
+# # 3. Search a Product by product_id
+# # 4. Update the stock of a Product
+# # 5. Delete a Product record
+# # 6. Exit
+import mysql.connector
+class Shop:
+    def __init__(self):
+        self.con=mysql.connector.connect(user="root",password="Root",host="localhost",database="shop")
+        print("CONNECTED")
+    def create(self,product,name,brand,category,price,stock):
+        c=self.con.cursor()
+        query="insert into product(product_id,name,brand,category,price,stock) values (%s,%s,%s,%s,%s,%s)"
+        data=(product,name,brand,category,price,stock)
+        c.execute(query,data)
+        self.con.commit()
+        print("INSERTED")
+
+
+
 while(1):
-    print("1.create\n2.read\n3.retrive\n4.update\n5.delete\n6.exit")
+    print("1.INSERT\n2.READ\n3.SEARCH\n4.UPDATE\n5.DELETE\n6.EXIT")
     ch=int(input("ENTER YOUR CHOICE: "))
     if ch==1:
-        i=int(input("ENTER ID: "))
-        n=input("ENTER NAME: ")
-        a=int(input("ENTER AGE: "))
-        p.create(i,n,a)
+        pass
     elif ch==2:
-        p.read()
-    elif ch == 3:
-        i=int(input("ENTER ID: "))
-        p.retrive(i)
-    elif ch == 4:
-        i = int(input("ENTER ID: "))
-        n = input("ENTER NAME: ")
-        a = int(input("ENTER AGE: "))
-        p.update(i, n, a)
-    elif ch == 5:
-        i=int(input("ENTER ID: "))
-        p.delete(i)
-    elif ch == 6:
-        exit()
+        pass
+    elif ch==3:
+        pass
+    elif ch==4:
+        pass
+    elif ch==5:
+        pass
+    elif ch==6:
+        pass
